@@ -4,9 +4,12 @@ const router = express.Router()
 
 router.route('/pokemon')
   .get(pokemon.getPokemon)
-  .post((req, res) => res.send('post pokemon successfully'))
+  .post(pokemon.makePokemon)
 
 router.route('/pokemon/:id')
-  .get((req, res) => res.send(' pokinon deleted based on the provided Id'))
+  .get((req, res) => res.send(pokemon.getSinglePokemon))
+  .delete((req, res) => res.send(pokemon.deletPokemon))
 
 export default router
+
+//kill $(lsof -t -i:8000)
